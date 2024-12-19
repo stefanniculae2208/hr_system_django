@@ -57,10 +57,6 @@ coverage.xml
 # Local settings file (can be used for sensitive settings)
 local_settings.py
 
-# Docker-related files (if using Docker)
-docker-compose.yml
-Dockerfile
-
 # Other system files
 .DS_Store  # macOS
 Thumbs.db  # Windows

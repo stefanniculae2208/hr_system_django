@@ -64,3 +64,13 @@ Dockerfile
 # Other system files
 .DS_Store  # macOS
 Thumbs.db  # Windows
+
+# Docker
+.docker/
+**/docker-compose.override.yml
+**/.docker-compose.override.yml
+volumes/
+.docker-compose.override.yml
+docker-compose.override.yml
+.dockerignore
+db_data/

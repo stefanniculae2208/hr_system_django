@@ -1,0 +1,66 @@
+# Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# Django settings and database
+*.log
+*.pot
+*.pyc
+*.pyo
+db.sqlite3  # SQLite database file (if present)
+/static/
+/media/
+
+# Django migrations
+*/migrations/*
+
+# Virtual environment
+venv/
+env/
+.venv/
+.ENV/
+env.bak/
+
+# Dependency directories
+pip-wheel-metadata/
+pip-log.txt
+pipenv.lock
+Pipfile.lock
+
+# Test and coverage reports
+*.coveragerc
+.coverage
+nosetests.xml
+coverage.xml
+*.cover
+
+# IDE/editor specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# PostgreSQL database dump files (if used)
+*.sql
+*.dump
+*.bak
+
+# Django secret key (if stored in a file)
+.secret_key
+
+# Environment variable files
+.env
+
+# Local settings file (can be used for sensitive settings)
+local_settings.py
+
+# Docker-related files (if using Docker)
+docker-compose.yml
+Dockerfile
+
+# Other system files
+.DS_Store  # macOS
+Thumbs.db  # Windows

@@ -10,22 +10,24 @@ General:
         source .venv/bin/activate
         pip install -r requirements.txt
         
-        Setup .env:
+        Setup .env from .env.exmaple:
 
-                # Docker:
+                Must replace user_name, user_password and db_name in the env file with one from your postgres.
+
+                # Run from Docker:
                 DB_ENGINE=django.db.backends.postgresql
                 DB_NAME=<db_name>
                 DB_USER=<user_name>
-                DB_PASSWORD=nokia6300
+                DB_PASSWORD=<user_password>
                 DB_HOST=dbdjango:5432
                 DB_PORT=5432
                 DATABASE_URL=postgresql://<user_name>:<user_password>@dbdjango:5432/<db_name>
 
-                # App:
+                # Run from App:
                 DB_ENGINE=django.db.backends.postgresql
                 DB_NAME=<db_name>
                 DB_USER=<user_name>
-                DB_PASSWORD=nokia6300
+                DB_PASSWORD=<user_password>
                 DB_HOST=localhost
                 DB_PORT=5432
                 DATABASE_URL=postgresql://<user_name>:<user_password>@localhost/<db_name>
@@ -54,6 +56,11 @@ DOCKER:
         python manage.py makemigrations
         python manage.py migrate
         exit
+        # Fill up the database with MOCK_DATA.json
+        curl -X POST "http://127.0.0.1:8000/api/hr_app/upload_employees/" \
+        -H "accept: application/json" \
+        -H "Content-Type: multipart/form-data" \
+        -F "file=@data/MOCK_DATA.json"
 
 
 CURL:

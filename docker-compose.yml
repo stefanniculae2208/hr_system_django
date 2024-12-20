@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  web:
+  webdjango:
     build:
       context: .
       dockerfile: Dockerfile
@@ -9,8 +9,23 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=postgresql://${DB_USER}:${DB_PASSWORD}@${HOST_IP}:5432/${DB_NAME}
+      - DATABASE_URL=postgresql://${DB_USER}:${DB_PASSWORD}@dbdjango:5432/${DB_NAME}
     volumes:
       - .:/app
     env_file:
       - .env
+    depends_on:
+      - dbdjango
+
+  dbdjango:
+    image: postgres:15
+    container_name: postgres_container_django
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
